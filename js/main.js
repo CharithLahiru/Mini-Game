@@ -48,7 +48,7 @@ function move(direction){
                boyX+=10;
            }
            boy.style.left=`${boyX}px`;
-       },20);
+       },10);
 
     }
 };
@@ -80,4 +80,4 @@ setInterval(()=>{
     }
     imgCount++;
     if(imgCount===9) imgCount=0;
-},100);
+},50);

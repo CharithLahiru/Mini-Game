@@ -2,7 +2,7 @@
 class ball{
     x;
     speedIncrement = 10;
-    y = 10;
+    y = 0;
     elmBall;
     constructor(){
         this.elmBall = document.createElement('div');
@@ -13,15 +13,18 @@ class ball{
         console.log(this.speedIncrement);
     }
     move(boyX,boyY){
-        this.speedIncrement=10+ Math.random()* 20+ballCount*10;
+        this.speedIncrement=1+ Math.random()* 2+ballCount*0.3;
         this.elmBall.style.display = 'block';
-        console.log(ballCount);
         this.elmBall.style.top = `${this.y}px`;
         this.y+=this.speedIncrement;
         if (this.y >= window.innerHeight) {
             this.y=0;
             helth--;
-            this.x = Math.random()*window.innerWidth;
+            let a=Math.random();
+            if (a<0.25) a+=0.25;
+            if (a>0.75) a-=0.25;
+            this.x = a*window.innerWidth;
+            console.log(this.x);
             this.elmBall.style.left = `${this.x}px`;
         }
 
@@ -51,11 +54,17 @@ let timer = setInterval(()=>{
     c.move(boyX,boyY);
     d.move(boyX,boyY);
 
-    score.innerHTML = `Score = ${ballCount}<br>Helth = ${helth}`;
-    // if (helth<=0) {
-        
-    // }
-},100);
+    score.innerHTML = `Score = ${ballCount}<br>Helth = ${helth}%`;
+    if (helth<=0) {
+        clearInterval(timer);
+        timer=null;
+        const over = document.querySelector('#gameOver');
+        over.style.display='block';
+        const finalScore = document.querySelector('#finalScore');
+        finalScore.style.display='block';
+        finalScore.innerHTML = `Your Score = ${ballCount}`;
+    }
+},10);
 
 const score = document.querySelector('#score');
 
