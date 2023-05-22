@@ -14,3 +14,26 @@ body{
     background-size: cover;
     overflow: hidden;
 }
+
+#instructions{
+    position: absolute;
+    font-size: 80px;
+    color: aliceblue;
+    left: 0;
+    top: 25vh;
+    bottom: 0;
+    right: 10vw;
+    margin: auto;
+    text-align: center;
+    opacity: 0;
+    animation-name: hide;
+    animation-duration: 6s;
+
+}
+
+@keyframes hide{
+    from{
+        opacity: 1;
+    }
+}
+

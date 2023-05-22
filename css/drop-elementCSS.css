@@ -45,4 +45,5 @@
     bottom: 0;
     margin: auto;
     display: none;
+    white-space:pre-wrap;
 }
