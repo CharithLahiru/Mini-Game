@@ -24,13 +24,15 @@ class ball{
             if (a<0.25) a+=0.25;
             if (a>0.75) a-=0.25;
             this.x = a*window.innerWidth;
-            console.log(this.x);
             this.elmBall.style.left = `${this.x}px`;
         }
 
         if (boyX<=this.x+50 && boyX>=this.x-150 && boyY<=this.y+50 && boyY>=this.y-250) {
             ballCount++;
-            this.x = Math.random()*window.innerWidth;
+            let a=Math.random();
+            if (a<0.25) a+=0.25;
+            if (a>0.75) a-=0.25;
+            this.x = a*window.innerWidth;
             this.elmBall.style.left = `${this.x}px`;
             this.y=0;
             this.elmBall.style.display = 'none';
@@ -40,34 +42,54 @@ class ball{
     }
 }
 
-let ballCount = 0;
+let ballCount = 0;          // change here 
 let helth = 100;
 const a = new ball();
 const b = new ball();
 const c = new ball();
 const d = new ball();
 
+function startTimer() {
+    
+    let timer = setInterval(()=>{
+        a.move(boyX,boyY);
+        b.move(boyX,boyY);
+        c.move(boyX,boyY);
+        d.move(boyX,boyY);
+    
+        score.innerHTML = `Score = ${ballCount}<br>Health = ${helth}%`;
+        if (helth<=0) {
+            clearInterval(timer);
+            timer=null;
+            const over = document.querySelector('#gameOver');
+            over.style.display='block';
+            const finalScore = document.querySelector('#finalScore');
+            finalScore.style.display='block';
+            finalScore.innerHTML = `Your Score = ${ballCount}`;
+            replay.classList.add ('animate__animated');
+            replay.classList.add ('animate__bounce');
+            replay.classList.add ('replay');
+            replay.classList.add ('animate__infinite');
+            document.body.append (replay);
+        }
+    },10);
 
-let timer = setInterval(()=>{
-    a.move(boyX,boyY);
-    b.move(boyX,boyY);
-    c.move(boyX,boyY);
-    d.move(boyX,boyY);
-
-    score.innerHTML = `Score = ${ballCount}<br>Helth = ${helth}%`;
-    if (helth<=0) {
-        clearInterval(timer);
-        timer=null;
-        const over = document.querySelector('#gameOver');
-        over.style.display='block';
-        const finalScore = document.querySelector('#finalScore');
-        finalScore.style.display='block';
-        finalScore.innerHTML = `Your Score = ${ballCount}`;
-    }
-},10);
-
+}    
+startTimer() ;
 const score = document.querySelector('#score');
+const replay = document.createElement('div');
 
+replay.addEventListener('click',()=>{
+    ballCount=0;
+    helth=100;
+    startTimer() ;
+    const over = document.querySelector('#gameOver');
+    over.style.display='none';
+    const finalScore = document.querySelector('#finalScore');
+    finalScore.style.display='none';
+    replay.remove();
+})
+ 
 
 
 

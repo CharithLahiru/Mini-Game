@@ -42,10 +42,10 @@ function move(direction){
     }else{
         moveInterval = setInterval(()=>{
            if (direction === 'left') {
-               boyX-=10;
+               if(boyX>50) boyX-=10;
            }
            if (direction === 'right') {
-               boyX+=10;
+            if(boyX<window.innerWidth-200) boyX+=10;
            }
            boy.style.left=`${boyX}px`;
        },10);

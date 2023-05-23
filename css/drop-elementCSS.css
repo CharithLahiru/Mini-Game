@@ -29,8 +29,8 @@
     bottom: 0;
     margin: auto;
     display: none;
+    
 }
-
 #finalScore{
     color: rgb(255, 255, 255);
     font-size: 40px;
@@ -46,4 +46,26 @@
     margin: auto;
     display: none;
     white-space:pre-wrap;
+}
+
+.replay{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    background-image: url('/imgs/replay.png');
+    background-repeat: no-repeat;
+    z-index: 4;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 70vh;
+    bottom: 0;
+    margin: auto;
+    /* display: none; */
+    cursor: pointer;
+}
+
+.hover{
+    cursor: pointer;
+    z-index: 4;
 }
