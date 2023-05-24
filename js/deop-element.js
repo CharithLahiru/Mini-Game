@@ -1,4 +1,3 @@
-
 class ball{
     x;
     speedIncrement = 10;
@@ -13,6 +12,7 @@ class ball{
         this.elmBall.style.left = `${this.x}px`;
         console.log(this.speedIncrement);
     }
+
     move(boyX,boyY){
         this.speedIncrement=1+ Math.random()* 2+ballCount*0.2;
         this.elmBall.style.display = 'block';
@@ -38,12 +38,10 @@ class ball{
             this.y=0;
             this.elmBall.style.display = 'none';
         }
-
-        
     }
 }
 
-let ballCount = 0;          // change here 
+let ballCount = 0;         
 let helth = 100;
 const a = new ball();
 const b = new ball();
@@ -72,12 +70,12 @@ function startTimer() {
             replay.classList.add ('animate__bounce');
             replay.classList.add ('replay');
             replay.classList.add ('animate__infinite');
-            replay.style.borderImage = `url('https://charithlahiru.github.io/Mini-Game/imgs/replay.png')`;
+            replay.style.backgroundImage = `url('imgs/replay.png')`;
             document.body.append (replay);
         }
     },10);
+}; 
 
-}    
 startTimer() ;
 const score = document.querySelector('#score');
 const replay = document.createElement('div');
@@ -91,7 +89,7 @@ replay.addEventListener('click',()=>{
     const finalScore = document.querySelector('#finalScore');
     finalScore.style.display='none';
     replay.remove();
-})
+});
  
 
 

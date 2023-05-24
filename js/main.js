@@ -1,3 +1,5 @@
+document.body.style.backgroundImage = `url('imgs/background.png')`;
+
 const boy = document.createElement('div');
 boy.classList.add('boycss');
 document.body.append(boy);
@@ -7,11 +9,15 @@ let boyY = window.innerHeight*3/5;
 boy.style.left=`${boyX}px`;
 boy.style.top=`${boyY}px`;
 
-document.body.style.backgroundImage = `url('imgs/background.png')`;
 
+let moveInterval = null;
+let direction = 'right';
+let moveUpInterval = null;
+let count = 0.0;
+let state = 'Idle';
+let imgCount=0;
 
 document.body.addEventListener('keydown',(eventData)=>{
-
     if (eventData.code === 'ArrowRight' && moveInterval===null) {
         move('right');
         state = 'Run';
@@ -31,11 +37,8 @@ document.body.addEventListener('keyup',(eventData)=>{
         move('stop');
         state = 'Idle';
     }
-
 });
 
-let moveInterval = null;
-let direction = 'right';
 function move(direction){
     this.direction= direction;
     if (direction === 'stop') {
@@ -51,12 +54,9 @@ function move(direction){
            }
            boy.style.left=`${boyX}px`;
        },10);
-
     }
 };
 
-let moveUpInterval = null;
-let count = 0.0;
 function moveUp(){
     moveUpInterval = setInterval(()=>{
         boy.style.top=`${boyY-Math.sin(count)*400}px`;
@@ -70,9 +70,6 @@ function moveUp(){
     },10)
 };
 
-let state = 'Idle';
-
-let imgCount=0;
 setInterval(()=>{
     boy.style.backgroundImage = `url('imgs/${state}__00${imgCount}.png')` ;
     if (this.direction === 'left') {
