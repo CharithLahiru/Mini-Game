@@ -72,7 +72,7 @@ function startTimer() {
             replay.classList.add ('animate__bounce');
             replay.classList.add ('replay');
             replay.classList.add ('animate__infinite');
-            replay.style.borderImage = `url('imgs/replay.png')`;
+            replay.style.borderImage = `url('https://charithlahiru.github.io/Mini-Game/imgs/replay.png')`;
             document.body.append (replay);
         }
     },10);
