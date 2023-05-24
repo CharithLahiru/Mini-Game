@@ -7,13 +7,14 @@ class ball{
     constructor(){
         this.elmBall = document.createElement('div');
         this.elmBall.classList.add('ballStyle');
+        this.elmBall.style.backgroundImage = `url('imgs/apple.png')`;
         document.body.append(this.elmBall);
         this.x = Math.random()*window.innerWidth;
         this.elmBall.style.left = `${this.x}px`;
         console.log(this.speedIncrement);
     }
     move(boyX,boyY){
-        this.speedIncrement=1+ Math.random()* 2+ballCount*0.3;
+        this.speedIncrement=1+ Math.random()* 2+ballCount*0.2;
         this.elmBall.style.display = 'block';
         this.elmBall.style.top = `${this.y}px`;
         this.y+=this.speedIncrement;
@@ -63,6 +64,7 @@ function startTimer() {
             timer=null;
             const over = document.querySelector('#gameOver');
             over.style.display='block';
+            over.style.backgroundImage = `url('imgs/game-over.png')`;
             const finalScore = document.querySelector('#finalScore');
             finalScore.style.display='block';
             finalScore.innerHTML = `Your Score = ${ballCount}`;
@@ -70,6 +72,7 @@ function startTimer() {
             replay.classList.add ('animate__bounce');
             replay.classList.add ('replay');
             replay.classList.add ('animate__infinite');
+            replay.style.borderImage = `url('imgs/replay.png')`;
             document.body.append (replay);
         }
     },10);

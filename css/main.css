@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .boycss{
-    width: 150px;
+    width: 160px;
     height: 250px;
     position: absolute;
     background-size: cover;
@@ -10,9 +10,12 @@
 }
 
 body{
-    background-image: url('/imgs/background.jpg');
+    /* background-image: url('/imgs/background.png'); */
     background-size: cover;
     overflow: hidden;
+    font-family: 'Oxanium', cursive;
+    font-weight: bold;
+    text-shadow: 10px -10px 2px rgba(64, 81, 134, 0.5);
 }
 
 #instructions{

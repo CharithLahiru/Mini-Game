@@ -2,7 +2,6 @@
 .ballStyle{
     width: 80px;
     height: 80px;
-    /* background-color: blueviolet; */
     background-image: url(/imgs/apple.png);
     background-size: cover;
     position: absolute;

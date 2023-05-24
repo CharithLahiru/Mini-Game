@@ -7,6 +7,8 @@ let boyY = window.innerHeight*3/5;
 boy.style.left=`${boyX}px`;
 boy.style.top=`${boyY}px`;
 
+document.body.style.backgroundImage = `url('imgs/background.png')`;
+
 
 document.body.addEventListener('keydown',(eventData)=>{
 
